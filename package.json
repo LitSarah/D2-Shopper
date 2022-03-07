@@ -4,7 +4,7 @@
   "description": "A Discord Bot for notifying Destiny 2 players if an item is available that they are missing",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "lint": "eslint .",
     "build": "node commands.js",
     "start": "node ."
@@ -29,6 +29,8 @@
     "node": "^16.10.0"
   },
   "devDependencies": {
-    "eslint": "^8.10.0"
+    "eslint": "^8.10.0",
+    "eslint-plugin-jest": "^26.1.1",
+    "jest": "^27.5.1"
   }
 }
