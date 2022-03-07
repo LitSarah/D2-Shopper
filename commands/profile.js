@@ -1,6 +1,6 @@
 require("dotenv").config();
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { getBungieNetUserById } = require("../bungienet/endpoints/player.js");
+const { getBungieNetUserById, convertUserResponseToEmbed } = require("../bungienet/endpoints/player.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -11,8 +11,10 @@ module.exports = {
         .setDescription("The membership ID of the player")
         .setRequired(true)),
   async execute(interaction) {
+    const response = await getBungieNetUserById(interaction.options.getString("id"));
+
     interaction.reply(
-      { embeds: [await getBungieNetUserById(interaction.options.getString("id"))] },
+      { embeds: [convertUserResponseToEmbed(response)] },
     );
   },
 };
