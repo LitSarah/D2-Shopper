@@ -20,6 +20,7 @@ function convertUserResponseToEmbed(response) {
     .setThumbnail(`https://bungie.net/${response.profilePicturePath}`)
     .addFields(
       { name: "First Created", value: response.firstAccess },
+      { name: "Membership ID", value: response.membershipId },
     );
 }
 
