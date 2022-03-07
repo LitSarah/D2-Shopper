@@ -5,7 +5,7 @@ const { Routes } = require("discord-api-types/v9");
 
 const commands = [];
 const commandFiles = fs
-  .readdirSync("./commands")
+  .readdirSync("src/commands")
   .filter((file) => file.endsWith(".js"));
 
 for (const file of commandFiles) {

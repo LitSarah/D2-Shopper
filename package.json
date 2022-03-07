@@ -2,11 +2,11 @@
   "name": "d2-shopper",
   "version": "0.0.0",
   "description": "A Discord Bot for notifying Destiny 2 players if an item is available that they are missing",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
-    "build": "node commands.js",
+    "build": "node ./src/commands.js",
     "start": "node ."
   },
   "repository": {
