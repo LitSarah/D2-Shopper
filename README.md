@@ -24,6 +24,7 @@
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+  - [Permissions](#permissions)
 - [Usage](#usage)
 - [Roadmap](#roadmap)
 - [Built With](#built-with)
@@ -72,7 +73,7 @@ Displays information about the player queried, like Bungie Name, created date, a
 /clan {name}
 ```
 
-Displays information about the clan, like name, call sign, and members.
+Displays information about the clan queried, like name, call sign, and members.
 
 ## Roadmap
 
