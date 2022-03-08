@@ -16,19 +16,17 @@
   </p>
 </p>
 
-![Downloads](https://img.shields.io/github/downloads/LitSarah/D2-Shopper/total) ![Contributors](https://img.shields.io/github/contributors/LitSarah/D2-Shopper?color=dark-green) ![Issues](https://img.shields.io/github/issues/LitSarah/D2-Shopper) ![License](https://img.shields.io/github/license/LitSarah/D2-Shopper)
-
-![Forks](https://img.shields.io/github/forks/LitSarah/D2-Shopper?style=social) ![Stargazers](https://img.shields.io/github/stars/LitSarah/D2-Shopper?style=social)
+![Downloads](https://img.shields.io/github/downloads/LitSarah/D2-Shopper/total) ![Contributors](https://img.shields.io/github/contributors/LitSarah/D2-Shopper?color=dark-green) ![Issues](https://img.shields.io/github/issues/LitSarah/D2-Shopper) ![License](https://img.shields.io/github/license/LitSarah/D2-Shopper) ![Forks](https://img.shields.io/github/forks/LitSarah/D2-Shopper?style=social) ![Stargazers](https://img.shields.io/github/stars/LitSarah/D2-Shopper?style=social)
 
 ## Table Of Contents
 
 - [About the Project](#about-the-project)
-- [Built With](#built-with)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
 - [Roadmap](#roadmap)
+- [Built With](#built-with)
 - [Contributing](#contributing)
 - [License](#license)
 - [Authors](#authors)
@@ -37,12 +35,6 @@
 ## About The Project
 
 D2 Shopper is a Discord bot that will show your clan members if anyone is selling a mod or exotic armor that they are missing.
-
-## Built With
-
-- Node.js
-- Discord.js
-- Axios
 
 ## Getting Started
 
@@ -59,6 +51,14 @@ Here's how to add the D2 Shopper bot to your Discord server.
 2. ???
 
 3. Profit!
+
+### Permissions
+
+- `applications.commands` - Create and modify slash commands
+- `Read Messages/View Channels` - ability to monitor for commands
+- `Send Messages` - ability to send messages
+- `Embed Links` - ability to add embeds and links to external sites like [light.gg](https://www.light.gg/)
+- `Use Slash Commands` - ability to use slash commands
 
 ## Usage
 
@@ -77,6 +77,12 @@ Displays information about the clan, like name, call sign, and members.
 ## Roadmap
 
 See the [open issues](https://github.com/LitSarah/D2-Shopper/issues) for a list of proposed features (and known issues).
+
+## Built With
+
+- Node.js
+- Discord.js
+- Axios
 
 ## Contributing
 
