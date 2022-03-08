@@ -13,6 +13,18 @@ async function getBungieNetUserById(id) {
   }
 }
 
+async function searchByGlobalNamePost(searchString) {
+  try {
+    const { data } = await bungie.post("/User/Search/GlobalName/0", { displayNamePrefix: searchString });
+    console.log(data.Response.searchResults);
+    return data.Response.searchResults;
+  }
+  catch (err) {
+    console.log(err);
+    return "There was an error";
+  }
+}
+
 function convertUserResponseToEmbed(response) {
   return new MessageEmbed()
     .setColor("#0099ff")
@@ -27,4 +39,5 @@ function convertUserResponseToEmbed(response) {
 module.exports = {
   getBungieNetUserById,
   convertUserResponseToEmbed,
+  searchByGlobalNamePost,
 };
