@@ -1,5 +1,4 @@
 const { bungie } = require("../index.js");
-const { MessageEmbed } = require("discord.js");
 
 async function groupSearch(searchString) {
   try {
@@ -15,19 +14,28 @@ async function groupSearch(searchString) {
   }
 }
 
-function convertGroupResponseToEmbed(response) {
-  return new MessageEmbed()
-    .setColor("#0099ff")
-    .setTitle(response.name)
-    .setDescription(response.about)
-    .addFields(
-      { name: "Motto", value: response.motto },
-      { name: "Call Sign", value: response.clanInfo.clanCallsign },
-      { name: "Group ID", value: response.groupId },
-    );
+async function membersOfGroup(groupId) {
+  try {
+    const { data } = await bungie.get(`/GroupV2/${groupId}/Members/`);
+    const results = data.Response.results;
+    console.log(results);
+    const members = [];
+    results.forEach((member) => {
+      members.push({
+        destinyMemberId: member.destinyUserInfo.membershipId,
+        bungieMemberId: member.bungieNetUserInfo.membershipId,
+        displayName: member.bungieNetUserInfo.supplementalDisplayName,
+      });
+    });
+    console.log(members);
+    return members;
+  } catch (err) {
+    console.log(err);
+    return "There was an error";
+  }
 }
 
 module.exports = {
   groupSearch,
-  convertGroupResponseToEmbed,
+  membersOfGroup,
 };
