@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
     "build": "node ./src/commands.js",
     "start": "node ."
   },
@@ -30,7 +31,10 @@
   },
   "devDependencies": {
     "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest": "^26.1.1",
-    "jest": "^27.5.1"
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.5.1",
+    "prettier": "^2.5.1"
   }
 }

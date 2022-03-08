@@ -1,6 +1,6 @@
 {
-  "extends": "eslint:recommended",
-  "plugins": ["jest"],
+  "extends": ["eslint:recommended"],
+  "plugins": ["jest", "prettier"],
   "env": {
     "node": true,
     "es6": true,
@@ -15,13 +15,6 @@
       {
         "before": true,
         "after": true
-      }
-    ],
-    "brace-style": [
-      "error",
-      "stroustrup",
-      {
-        "allowSingleLine": true
       }
     ],
     "comma-dangle": ["error", "always-multiline"],

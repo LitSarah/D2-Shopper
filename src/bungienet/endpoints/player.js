@@ -6,8 +6,7 @@ async function getBungieNetUserById(id) {
     const { data } = await bungie.get(`/User/GetBungieNetUserById/${id}/`);
     console.log(data.Response);
     return data.Response;
-  }
-  catch (err) {
+  } catch (err) {
     console.log(err);
     return "There was an error";
   }
@@ -15,11 +14,12 @@ async function getBungieNetUserById(id) {
 
 async function searchByGlobalNamePost(searchString) {
   try {
-    const { data } = await bungie.post("/User/Search/GlobalName/0", { displayNamePrefix: searchString });
+    const { data } = await bungie.post("/User/Search/GlobalName/0", {
+      displayNamePrefix: searchString,
+    });
     console.log(data.Response.searchResults);
     return data.Response.searchResults;
-  }
-  catch (err) {
+  } catch (err) {
     console.log(err);
     return "There was an error";
   }
