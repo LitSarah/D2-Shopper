@@ -20,7 +20,7 @@ const rest = new REST({ version: "9" }).setToken(process.env.DISCORD_TOKEN);
     console.log("Started refreshing application (/) commands.");
 
     if (process.env.TEST_ENV == "true") {
-      console.log(`Deploying to ${process.env.GUILD_ID}`);
+      console.log(`\tDeploying to ${process.env.GUILD_ID}`);
       await rest.put(
         Routes.applicationGuildCommands(
           process.env.CLIENT_ID,
@@ -29,7 +29,7 @@ const rest = new REST({ version: "9" }).setToken(process.env.DISCORD_TOKEN);
         { body: commands },
       );
     } else {
-      console.log("Deploying globally");
+      console.log("\tDeploying globally");
       await rest.put(Routes.applicationCommands(process.env.CLIENT_ID), {
         body: commands,
       });
