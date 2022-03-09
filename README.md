@@ -45,13 +45,29 @@ Here's how to add the D2 Shopper bot to your Discord server.
 
 - Manage Server permissions on the Discord server the bot is being added to
 
-### Installation
+### Installation (Host Your Own)
 
-1. [Click here to authorize the bot](https://discord.com/api/oauth2/authorize?client_id=950413026627059832&permissions=2147503104&scope=bot%20applications.commands)
-
-2. ???
-
-3. Profit!
+1. Download the code to a local machine, [Replit](https://replit.com/), or a VPS
+2. Run `npm ci` in the code's root folder
+3. Create a Discord Application and related bot in the [Discord Developer Portal](https://discord.com/developers/applications)
+4. Add the bot to your server with the following scopes and permissions (see the [Permissions](#permissions) section for what they do):
+   - Scopes
+     - `bot`
+     - `application.commands`
+   - Permissions
+     - Read Messages/View Channels
+     - Send Messages
+     - Embed Links
+     - Use Slash Commands
+5. Create an app with Bungie in the [Bungie Developer Portal](https://www.bungie.net/en/Application)
+6. Add the following environment variables to a `.env` file at the root of the project:
+   - `DISCORD_TOKEN` - the token for the Discord bot you created
+   - `CLIENT_ID` - the application ID for the Discord app you created
+   - `GUILD_ID` - the ID of the server the bot will be used on
+   - `BUNGIE_TOKEN` - the API key for the Bungie app you created
+7. Run `npm test` to run unit tests and make sure the Bungie API is working properly.
+8. Run `npm run build` to deploy the commands to the server you specified with `GUILD_ID`
+9. Run `npm start` to start up the bot and be able to interact with it from Discord
 
 ### Permissions
 
