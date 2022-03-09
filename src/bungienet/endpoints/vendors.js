@@ -1,5 +1,11 @@
 const { bungie } = require("../index.js");
 
+const vendorHashes = {
+  Xur: "2190858386",
+  Banshee: "672118013",
+  Ada: "350061650",
+};
+
 // Get vendors
 async function getPublicVendors() {
   try {
@@ -19,8 +25,31 @@ async function getPublicVendors() {
   }
 }
 
+// Get vendor details
+async function getVendorDetails(vendorId) {
+  try {
+    const { data } = await bungie.get(
+      `/Destiny2/Manifest/DestinyVendorDefinition/${vendorId}`,
+    );
+    const displayProperties = data.Response.displayProperties;
+    console.log(displayProperties);
+    return displayProperties;
+  } catch (err) {
+    console.log(err);
+    return "There was an error";
+  }
+}
+
+async function getVendorDetailsByName(vendorName) {
+  const vendorId = vendorHashes[vendorName];
+  return await getVendorDetails(vendorId);
+}
+
 // Get what they're selling
 
 module.exports = {
   getPublicVendors,
+  getVendorDetails,
+  getVendorDetailsByName,
+  vendorHashes,
 };

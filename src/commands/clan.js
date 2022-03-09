@@ -1,9 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
-const {
-  groupSearch,
-  membersOfGroup,
-} = require("../bungienet/endpoints/group.js");
+const { groupSearch, membersOfGroup } = require("../bungienet/endpoints/group");
 
 module.exports = {
   data: new SlashCommandBuilder()

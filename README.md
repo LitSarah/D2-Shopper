@@ -75,6 +75,12 @@ Displays information about the player queried, like Bungie Name, created date, a
 
 Displays information about the clan queried, like name, call sign, and members.
 
+```
+/vendor [Xur, Banshee, Ada]
+```
+
+Displays information about the vendor selected.
+
 ## Roadmap
 
 See the [open issues](https://github.com/LitSarah/D2-Shopper/issues) for a list of proposed features (and known issues).

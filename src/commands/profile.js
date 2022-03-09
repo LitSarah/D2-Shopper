@@ -3,7 +3,7 @@ const {
   getBungieNetUserById,
   convertUserResponseToEmbed,
   searchByGlobalNamePost,
-} = require("../bungienet/endpoints/player.js");
+} = require("../bungienet/endpoints/player");
 
 module.exports = {
   data: new SlashCommandBuilder()
