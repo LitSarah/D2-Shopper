@@ -1,4 +1,4 @@
-const { getBungieNetUserById, searchByGlobalNamePost } = require("./player.js");
+const { getBungieNetUserById, searchByGlobalNamePost } = require("./player");
 
 test("Search for Bungie user by ID", async () => {
   const response = await getBungieNetUserById("26920932");

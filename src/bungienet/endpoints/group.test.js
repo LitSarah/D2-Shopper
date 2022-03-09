@@ -1,4 +1,4 @@
-const { groupSearch, membersOfGroup } = require("./group.js");
+const { groupSearch, membersOfGroup } = require("./group");
 
 test("Search for Group by name", async () => {
   const response = await groupSearch("Bank of Spira");
