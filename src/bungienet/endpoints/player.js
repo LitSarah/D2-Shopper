@@ -1,5 +1,4 @@
 const { bungie } = require("../index.js");
-const { MessageEmbed } = require("discord.js");
 
 async function getBungieNetUserById(id) {
   try {
@@ -25,19 +24,7 @@ async function searchByGlobalNamePost(searchString) {
   }
 }
 
-function convertUserResponseToEmbed(response) {
-  return new MessageEmbed()
-    .setColor("#0099ff")
-    .setTitle(response.uniqueName)
-    .setThumbnail(`https://bungie.net/${response.profilePicturePath}`)
-    .addFields(
-      { name: "First Created", value: response.firstAccess },
-      { name: "Membership ID", value: response.membershipId },
-    );
-}
-
 module.exports = {
   getBungieNetUserById,
-  convertUserResponseToEmbed,
   searchByGlobalNamePost,
 };

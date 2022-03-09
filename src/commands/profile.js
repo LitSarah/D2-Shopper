@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+const { MessageEmbed } = require("discord.js");
 const {
   getBungieNetUserById,
-  convertUserResponseToEmbed,
   searchByGlobalNamePost,
 } = require("../bungienet/endpoints/player");
 
@@ -23,6 +23,15 @@ module.exports = {
     const id = response[0].bungieNetMembershipId;
     const profile = await getBungieNetUserById(id);
 
-    interaction.reply({ embeds: [convertUserResponseToEmbed(profile)] });
+    const embed = new MessageEmbed()
+      .setColor("#0099ff")
+      .setTitle(profile.uniqueName)
+      .setThumbnail(`https://bungie.net${profile.profilePicturePath}`)
+      .addFields(
+        { name: "First Created", value: profile.firstAccess },
+        { name: "Membership ID", value: profile.membershipId },
+      );
+
+    interaction.reply({ embeds: [embed] });
   },
 };
