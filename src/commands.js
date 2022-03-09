@@ -15,13 +15,28 @@ for (const file of commandFiles) {
 
 const rest = new REST({ version: "9" }).setToken(process.env.DISCORD_TOKEN);
 
-rest
-  .put(
-    Routes.applicationGuildCommands(
-      process.env.CLIENT_ID,
-      process.env.GUILD_ID,
-    ),
-    { body: commands },
-  )
-  .then(() => console.log("Successfully registered application commands."))
-  .catch(console.error);
+(async () => {
+  try {
+    console.log("Started refreshing application (/) commands.");
+
+    if (process.env.TEST_ENV == "true") {
+      console.log(`Deploying to ${process.env.GUILD_ID}`);
+      await rest.put(
+        Routes.applicationGuildCommands(
+          process.env.CLIENT_ID,
+          process.env.GUILD_ID,
+        ),
+        { body: commands },
+      );
+    } else {
+      console.log("Deploying globally");
+      await rest.put(Routes.applicationCommands(process.env.CLIENT_ID), {
+        body: commands,
+      });
+    }
+
+    console.log("Successfully reloaded application (/) commands.");
+  } catch (error) {
+    console.error(error);
+  }
+})();
