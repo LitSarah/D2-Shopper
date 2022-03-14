@@ -3,6 +3,7 @@ const {
   getVendorDetails,
   vendorHashes,
   getVendorDetailsByName,
+  getPublicVendorSales,
 } = require("./vendors");
 
 test("Get list of vendor hashes", async () => {
@@ -18,4 +19,15 @@ test("Get details of vendor", async () => {
 test("Get details of vendor by Name", async () => {
   const response = await getVendorDetailsByName("Xur");
   expect(response.subtitle).toBe("Agent of the Nine");
+});
+
+test("Get what a vendor is selling", async () => {
+  const exoticEngram = 3875551374;
+  const response = await getPublicVendorSales();
+  const saleItems = Object.values(response[vendorHashes.Xur].saleItems);
+  expect(saleItems).toContainEqual(
+    expect.objectContaining({
+      itemHash: exoticEngram,
+    }),
+  );
 });

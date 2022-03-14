@@ -46,10 +46,25 @@ async function getVendorDetailsByName(vendorName) {
 }
 
 // Get what they're selling
+async function getPublicVendorSales() {
+  try {
+    const { data } = await bungie.get("/Destiny2/Vendors/", {
+      params: {
+        components: "VendorSales",
+      },
+    });
+    const salesObj = data.Response.sales.data;
+    return salesObj;
+  } catch (err) {
+    console.log(err);
+    return "There was an error";
+  }
+}
 
 module.exports = {
   getPublicVendors,
   getVendorDetails,
   getVendorDetailsByName,
+  getPublicVendorSales,
   vendorHashes,
 };
