@@ -11,5 +11,6 @@ test("Get members of a group", async () => {
     destinyMemberId: "4611686018508685170",
     bungieMemberId: "26920932",
     displayName: "Maegmariel#3273",
+    membershipType: 3,
   });
 });
