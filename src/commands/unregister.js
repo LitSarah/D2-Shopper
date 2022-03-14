@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
 const { groupSearch, membersOfGroup } = require("../bungienet/endpoints/group");
-const { GuildClans } = require("../database");
+const { GuildClans } = require("../dbObjects");
 
 module.exports = {
   data: new SlashCommandBuilder()
