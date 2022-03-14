@@ -24,6 +24,7 @@ async function membersOfGroup(groupId) {
       members.push({
         destinyMemberId: member.destinyUserInfo.membershipId,
         bungieMemberId: member.bungieNetUserInfo.membershipId,
+        membershipType: member.destinyUserInfo.membershipType,
         displayName: member.bungieNetUserInfo.supplementalDisplayName,
       });
     });
