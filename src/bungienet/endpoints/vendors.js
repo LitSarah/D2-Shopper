@@ -70,12 +70,44 @@ async function getPublicVendorSales() {
     return "There was an error";
   }
 }
+// Get what a single vendor is selling
+async function getVendorSales(vendorHash) {
+  try {
+    const { data } = await bungie.get("/Destiny2/Vendors/", {
+      params: {
+        components: "VendorSales",
+      },
+    });
+    const salesObj = data.Response.sales.data;
+    const salesData = Object.values(salesObj[vendorHash].saleItems);
+    return salesData;
+  } catch (err) {
+    console.log(err);
+    return "There was an error";
+  }
+}
+
+async function getVendorCollectibles(vendorHash) {
+  const vendorData = await getVendorSales(vendorHash);
+  const vendorItemHashes = vendorData.map(({ itemHash }) => itemHash);
+
+  const inventoryItemDef = await getManifest(
+    destinyManifests.DestinyInventoryItemDefinition,
+  );
+
+  const allVendorCollectibles = vendorItemHashes.map((hash) => {
+    return inventoryItemDef[hash].collectibleHash;
+  });
+  const vendorCollectibles = allVendorCollectibles.filter((hash) => {
+    return hash != undefined;
+  });
+
+  return vendorCollectibles;
+}
 
 async function getVendorSalesWithNames(vendorHash) {
-  const salesData = await getPublicVendorSales();
-  const vendorData = Object.values(salesData[vendorHash].saleItems);
+  const vendorData = await getVendorSales(vendorHash);
   const vendorItemHashes = vendorData.map(({ itemHash }) => itemHash);
-  // console.log(vendorItemHashes);
   const inventoryItemDef = await getManifest(
     destinyManifests.DestinyInventoryItemDefinition,
   );
@@ -98,6 +130,8 @@ module.exports = {
   getVendorDetails,
   getVendorDetailsByName,
   getPublicVendorSales,
+  getVendorSales,
   getVendorSalesWithNames,
+  getVendorCollectibles,
   vendorHashes,
 };
