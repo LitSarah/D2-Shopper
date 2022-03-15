@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
 const { groupSearch, membersOfGroup } = require("../bungienet/endpoints/group");
-const { GuildClans } = require("../dbObjects");
+const { GuildClans, ClanMembers } = require("../dbObjects");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -62,7 +62,8 @@ module.exports = {
       .awaitMessageComponent({ filter, componentType: "BUTTON", time: 15000 })
       .then((action) => {
         if (action.customId == "allow") {
-          GuildClans.create({
+          // Add guild-clan relationship
+          GuildClans.upsert({
             guild: interaction.guild.id,
             clan: clan.groupId,
           })
@@ -77,6 +78,16 @@ module.exports = {
                 "Something went wrong with registering the clan.",
               );
             });
+          // upsert clan-member relationships
+          membersResult.forEach((mem) => {
+            ClanMembers.upsert({
+              clan: clan.groupId,
+              bungieId: mem.bungieMemberId,
+              destinyId: mem.destinyMemberId,
+              membershipType: mem.membershipType,
+              displayName: mem.displayName,
+            }).then(console.log(`Registered clan member ${mem.displayName}`));
+          });
         }
         interaction.editReply({
           content: `You decided to ${action.customId} the request.`,

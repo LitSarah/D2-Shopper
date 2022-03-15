@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     clan: DataTypes.STRING,
     destinyId: DataTypes.STRING,
+    membershipType: DataTypes.STRING,
     displayName: DataTypes.STRING,
   });
 };
