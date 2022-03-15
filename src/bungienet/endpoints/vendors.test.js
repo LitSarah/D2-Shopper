@@ -4,6 +4,7 @@ const {
   vendorHashes,
   getVendorDetailsByName,
   getPublicVendorSales,
+  getVendorSalesWithNames,
 } = require("./vendors");
 
 test("Get list of vendor hashes", async () => {
@@ -30,4 +31,9 @@ test("Get what a vendor is selling", async () => {
       itemHash: exoticEngram,
     }),
   );
+});
+
+test("Get item names of what a vendor is selling", async () => {
+  const response = await getVendorSalesWithNames(vendorHashes.Xur);
+  expect(response).toContain("Hawkmoon");
 });

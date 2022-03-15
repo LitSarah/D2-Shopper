@@ -17,9 +17,12 @@ module.exports = {
     ),
 
   async execute(interaction) {
+    interaction.deferReply();
     const response = await getVendorDetailsByName(
       interaction.options.getString("name"),
     );
+
+    const vendorItems = response.items.join("\n");
 
     const embed = new MessageEmbed()
       .setColor("#0099ff")
@@ -28,7 +31,9 @@ module.exports = {
         iconURL: `https://bungie.net${response.icon}`,
       })
       .setDescription(response.description)
-      .setThumbnail(`https://bungie.net${response.largeIcon}`);
-    interaction.reply({ embeds: [embed] });
+      .setThumbnail(`https://bungie.net${response.largeIcon}`)
+      .addFields({ name: "Items for Sale", value: vendorItems });
+
+    interaction.editReply({ embeds: [embed] });
   },
 };
