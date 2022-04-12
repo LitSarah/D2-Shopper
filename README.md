@@ -49,6 +49,7 @@ Here's how to add the D2 Shopper bot to your Discord server.
 
 1. Download the code to a local machine, [Replit](https://replit.com/), or a VPS
 2. Run `npm ci` in the code's root folder
+   - If running on a Mac, you may need to run `npm config set python python3` to resolve an error in SQLite3's dependencies
 3. Create a Discord Application and related bot in the [Discord Developer Portal](https://discord.com/developers/applications)
 4. Add the bot to your server with the following scopes and permissions (see the [Permissions](#permissions) section for what they do):
    - Scopes
