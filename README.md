@@ -1,3 +1,8 @@
+<div>
+<h3 align="center">This project is now cancelled</h3>
+<p align="center">With Bungie's change to open up all armor mods, the problem this bot was supposed to solve has been resolved. Development won't continue.</p>
+</div>
+<hr />
 <br/>
 <p align="center">
   <a href="https://github.com/LitSarah/D2-Shopper">
@@ -16,7 +21,9 @@
   </p>
 </p>
 
-![Downloads](https://img.shields.io/github/downloads/LitSarah/D2-Shopper/total) ![Contributors](https://img.shields.io/github/contributors/LitSarah/D2-Shopper?color=dark-green) ![Issues](https://img.shields.io/github/issues/LitSarah/D2-Shopper) ![License](https://img.shields.io/github/license/LitSarah/D2-Shopper) ![Forks](https://img.shields.io/github/forks/LitSarah/D2-Shopper?style=social) ![Stargazers](https://img.shields.io/github/stars/LitSarah/D2-Shopper?style=social)
+![Maintenance](https://img.shields.io/maintenance/no/2023)
+
+![Contributors](https://img.shields.io/github/contributors/LitSarah/D2-Shopper?color=dark-green) ![Issues](https://img.shields.io/github/issues/LitSarah/D2-Shopper) ![License](https://img.shields.io/github/license/LitSarah/D2-Shopper) ![Forks](https://img.shields.io/github/forks/LitSarah/D2-Shopper?style=social) ![Stargazers](https://img.shields.io/github/stars/LitSarah/D2-Shopper?style=social)
 
 ## Table Of Contents
 
